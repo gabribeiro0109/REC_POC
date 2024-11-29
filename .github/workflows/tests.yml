@@ -34,6 +34,6 @@ jobs:
     - name: Deploy to EC2 - AWS
       run: |
         echo "Connecting to EC2 instance"
-        echo "${{ secrets.poc_secreta }}" > private_key && chmod 600 private_key
+        echo "${{secrets.poc_secreta}}" > private_key && chmod 600 private_key
         ssh -o StrictHostKeyChecking=no -i private_key ubuntu@ec2-54-172-46-15.compute-1.amazonaws.com "
           cd REC_POC/ && git pull && ./executar.sh"
